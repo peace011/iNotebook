@@ -104,28 +104,13 @@ const NoteState =(props)=>{
 
                 }
 
-                const [user, setUser] = useState(null);
-                const fetchUserDetails = async (token) => {
-                    try {
-                      const response = await axios.post('http://localhost:5000/api/auth/getuser', null, {
-                        headers: {
-                          'Content-Type': 'application/json',
-                          'auth-token': localStorage.getItem('token'),
-                        },
-                      });
-                
-                      setUser(response.data);
-                      console.log("ok");
-                    } catch (error) {
-                      console.error(error);
-                    }
-                  };
+              
                 
         
 
 
     return (
-        <NoteContext.Provider value={{notes,setNotes,addNote,deleteNote,editNote,getNotes,fetchUserDetails,user}}>
+        <NoteContext.Provider value={{notes,setNotes,addNote,deleteNote,editNote,getNotes}}>
             {props.children}
         </NoteContext.Provider>
     )
